@@ -35,7 +35,7 @@ def processing(config):
     urlFolder=f'https://{config["nextcloudAddress"]}/remote.php/dav/files/{config["user"]}/{config["subfolder"]}/'
     if check_file_exists(urlFolder) == False:
         print(f"Creating subfolder {config['subfolder']}")
-        r = requests.request("MKCOL",url, auth = HTTPBasicAuth(config["user"], config["password"]))
+        r = requests.request("MKCOL",urlFolder, auth = HTTPBasicAuth(config["user"], config["password"]))
         if r.status_code != 201:
             print(f"error creating subfolder {urlFolder}")
             print(f"error message: {r}")

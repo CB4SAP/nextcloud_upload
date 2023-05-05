@@ -45,7 +45,7 @@ def processing(config):
         if check_file_exists(url, config["user"], config["password"]) == False:
             if os.path.isfile(i):
                 file=open(i, 'rb')
-                r = requests.put(url, data=file.read(),auth = HTTPBasicAuth(config["user"], config["password"]))
+                r = requests.put(url, data=file ,auth = HTTPBasicAuth(config["user"], config["password"]))
                 if r.status_code != 201:
                     print(f"error uploading file: {i} to {url}")
                     print(f"error message: {r}")
